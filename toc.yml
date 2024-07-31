@@ -7,3 +7,9 @@
 - name: C#
   href: coreclr-module/docs/toc.yml
   topicHref: coreclr-module/docs/index.md
+- name: SDK
+  href: cpp-sdk/articles/toc.yml
+  topicHref: cpp-sdk/articles/index.md
+- name: GTA
+  href: altv-docs-gta/toc.yml
+  topicHref: altv-docs-gta/index.md

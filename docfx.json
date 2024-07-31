@@ -30,6 +30,26 @@
       },
       {
         "files": [
+          "**.md",
+          "**/toc.yml"
+        ],
+        "src": "cpp-sdk/articles/",
+        "dest": "sdk/"
+      },
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md",
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ],
+        "src": "altv-docs-gta",
+        "dest": "gta/"
+      },
+      {
+        "files": [
           "toc.yml",
           "index.md",
           "articles/**.md",
@@ -42,15 +62,29 @@
         "files": [
           "images/**"
         ],
-        "src": "altv-types/docs",
+        "src": "altv-docs-assets/altv-docs",
+        "dest": "."
+      },
+      {
+        "files": [
+          "images/**"
+        ],
+        "src": "altv-docs-assets/altv-types",
         "dest": "js/"
       },
       {
         "files": [
           "images/**"
         ],
-        "src": "coreclr-module/docs",
+        "src": "altv-docs-assets/coreclr-module",
         "dest": "cs/"
+      },
+      {
+        "files": [
+          "images/**"
+        ],
+        "src": "altv-docs-assets/altv-docs-gta",
+        "dest": "gta/"
       }
     ],
     "overwrite": [
@@ -67,6 +101,13 @@
         ],
         "src": "coreclr-module/docs",
         "dest": "cs/"
+      },
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "src": "altv-docs-gta",
+        "dest": "gta/"
       }
     ],
     "globalMetadata": {
@@ -79,16 +120,55 @@
         "branch": "master",
         "apiSpecFolder": "docs/apidoc"
       },
-      "_gitUrlPattern": "github"
+      "_gitUrlPattern": "github",
+      "_searchHelpUrl": "articles/search_help.html",
+      "_lunrTokenSeparator": "[\\s\\:\\-\\.\\(\\)\\[\\]+\\\"\\'\\<\\>]",
+      "_lunrSimilarityB": 0.0,
+      "_lunrSimilarityK1": 1.2,
+      "_lunrRef": "href",
+      "_lunrFields": {
+        "type": {
+          "boost": 100
+        },
+        "title": {
+          "boost": 50
+        },
+        "keyword": {
+          "boost": 25
+        },
+        "lang": {
+          "boost": 75
+        }
+      }
+    },
+    "fileMetadata": {
+      "lang": {
+        "altv-docs-gta/**": ["js", "csharp"],
+        "altv-types/**": ["js"],
+        "coreclr-module/**": ["csharp"],
+        "cpp-sdk/**": ["cpp"]
+      },
+      "_gitContribute": {
+        "cpp-sdk/**": {
+          "branch": "docs",
+          "apiSpecFolder": "docs/apidoc"
+        }
+      }
     },
     "template": [
       "default",
       "templates/docfx-plugins-typescriptreference",
+      "templates/docfx-plugins-addimagemodal",
       "templates/docfx-plugins-extractsearchindex",
+      "templates/docfx-plugins-extractarticleaffix",
       "templates/discordfx",
       "templates/altmp"
     ],
-    "postProcessors": [ "ExtractSearchIndexAlt" ],
+    "postProcessors": [
+      "AddImageModal",
+      "ExtractSearchIndexAlt",
+      "ExtractArticleAffix"
+    ],
     "markdownEngineName": "markdig",
     "dest": "_site"
   }

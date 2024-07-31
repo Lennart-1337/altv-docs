@@ -1,7 +1,7 @@
-- name: Config files
-  href: index.md
 - name: Server config
   href: server.md
+- name: Client config
+  href: client.md
 - name: Resource config
   href: resource.md
 - name: Stream config
